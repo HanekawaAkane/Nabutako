@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>ナブタコ事典</title>
+		<script src="js/jquery-3.6.0.min.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+		<link rel="stylesheet" href="font/font.css">
+		<link rel="icon" type="image/x-icon" href="img/favicon.ico">
+		<style type="text/css">
+			*{padding: 0;margin: 0;list-style: none;}
+			
+			body{
+				background-image: url(img/album-bg.png);
+				background-size: cover;
+				background-attachment: fixed ;
+				background-repeat: no-repeat;
+			}
+			
+			h1{-webkit-user-select:none;-ms-user-select: none;-moz-user-select: none;margin: 0;}
+			
+			.top{height: 50px;width: 100%;}
+			#top{
+				width: 100%;
+				background-color: #f9fbf9;
+				box-shadow: 0 3px 4px 0 rgba(0,0,0,0.2);
+				z-index: 3;
+				position: fixed;left: 0;top: 0;
+				}
+				
+			#top-center{
+				max-width: 1000px;
+				height: 50px;
+				margin: 0 auto;
+				display: flex;
+				justify-content: space-between;
+				align-items:center;
+				}
+				
+			#top-center h1{font-size: 20px;font-weight: 400;}
+			
+			#nav-bt{width: 26px;height: 26px;background-size: 100%;}
+			
+			.bt{background-image: url(img/navbt.png);}
+			
+			.close{background-image: url(img/close.png);}
+			
+			#navpage{
+				height: 100vh;
+				width: 0;
+				background-color: #f9fbf9;
+				top: 50px;left: 0;
+				position: fixed;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				overflow: hidden;
+				transition: width 0.5s;
+				-webkit-user-select:none;-ms-user-select: none;-moz-user-select: none;
+				z-index: 1;
+			}
+			#nav>div{
+				text-align: center;
+				margin-top:20px;
+				transform: translateY(-40px);
+				cursor: pointer;
+				font-size: 19px;
+				overflow: hidden;
+			}
+			.nav-item li{
+				text-align: center;
+				margin-top: 10px;
+				font-size: 16px;
+				color:grey;
+			}
+			
+			#content{
+				width: 100%;
+				background-color: white;
+				overflow: hidden;
+			}
+			
+			.elma{max-width:1000px;margin:30px auto 0;}
+			#video{width: 1000px;}
+					
+			.news{width: 1000px;margin: 20px auto;}
+			
+			#album{
+				width:1000px;
+				margin: 0 auto;
+				position: relative;
+				height: 600px;
+				-webkit-user-select:none;-ms-user-select: none;-moz-user-select: none;
+			}
+			
+			#album .word{
+				position: absolute;top: 10%;left: 50%;transform: translateX(-50%);
+				font-size: 24px;font-weight: 500;
+				color: #2e3579;
+				width: 100%;
+				text-align: center;
+				font-family: "ming";				
+				}
+			
+			.cd-small{
+				position: absolute;
+				width:30%;
+				display: flex;
+				bottom: 10px;
+				left: 0px;
+				}
+			.cd-small img{width: 11.111%;z-index: 1;}
+			
+			.cd-big{
+				position: absolute;
+				bottom: 10px;
+				left:390px;
+				width: 450px;
+				height: 450px;
+				background-color: #121416;
+			}
+			
+			.cd-big img{
+				width: 100%;
+				position: absolute;top: 0;left: 0;
+				cursor: pointer;
+			}
+			
+			.ch-cd{
+				transform: rotate(10deg);
+				margin:0 19px;
+				position: relative;
+				box-shadow: 4px 4px 4px 2px rgba(0,0,0,0.5);
+			}
+			#interview{
+				width: 100%;
+				background-color: white;
+				overflow: hidden;
+				padding-bottom: 20px;
+			}
+			.view-title{
+				width: 1000px;
+				margin: 0 auto;
+				padding: 80px 0;
+				font-size: 18px;
+				font-family: "ming";
+				text-align: right;
+			}
+			.view-title span{color: #6094e0;}
+			
+			.view-body{
+				background-color: #7ecef4;
+				width: 1000px;
+				margin: 0 auto;
+				padding: 50px 60px;
+				position: relative;
+			}
+			.view-body h5{color: #e1e0e6;letter-spacing: 6px;font-weight: 400;}
+			
+			.view-text p{
+				margin-top: 6px;
+				font-size: 22px;font-family: "ming";
+			}
+			.work,.talk{margin-top: 10px;}
+			.work p{color: #7e7e7e;font-size: 18px;font-family: "ming";margin-top: 6px;}
+			.talk p{color: #7e7e7e;font-size: 18px;font-family: "ming";margin-top: 6px;letter-spacing:2px;}
+			
+			.buna{position: absolute;width: 160px;right: 10%;top: -80px;}
+			.buna img{width: 100%;border-radius:4px;}
+			.view-more{position: absolute;width: 100px;right:12%;bottom: 30px;cursor: pointer;}
+			.view-more img{width: 100%;}
+			
+			#footer{
+				height: 60px;
+				width: 100%;
+				background-color: #e1e0e6;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<div id="top">
+				<div id="top-center">
+					<div><h1>ナブタコ事典</h1></div>
+					<div id="nav-bt" class="bt"></div>
+				</div>
+			</div>
+		</header>
+		
+		<div id="navpage">
+			<div id="nav">
+				<div class="nav-item">
+					<a>VOCALOID</a>
+					<div>
+						<li><a>カーテンコールが止む前に</a></li>
+						<li><a>花と水飴、最終電車</a></li>
+						<li><a>月を歩いている</a></li>
+					</div>
+				</div>
+				<div class="nav-item">
+					<a>YORUSHIKA</a>
+					<div>
+						<li><a >夏草が邪魔をする</a></li>
+						<li><a >負け犬にアンコールはいらない</a></li>
+						<li><a >だから僕は音楽を辞めた</a></li>
+						<li><a >エルマ</a></li>
+						<li><a >盗作</a></li>
+						<li><a >創作</a></li>
+					</div>
+				</div>
+				<div class="nav-item">
+					<a>n-buna info</a>
+					<div>
+						<li><a >访谈＆杂物</a></li>
+						<li><a >个人信息</a></li>
+					</div>
+				</div>
+				<div class="nav-item">
+					<a>developer</a>
+				</div>
+				<div class="nav-item">
+					<a>OFFICIAL SITE</a>
+				</div>
+				
+			</div>
+		</div>
+		
+		<div id="content">
+			<div class="top"></div>
+			
+			<div class="elma">
+				<video src="video/elma.mp4" loop="loop" autoplay="autoplay" muted="" 
+							class="video" id="video"></video>
+			</div>
+			
+			<div class="bg-light my-4 d-flex flex-wrap news">
+				<div class="col-12 col-md-3 border-bottom py-2">
+					公告
+					<div>
+						asdasdas1
+					</div>
+				</div>
+			
+				<div class="col-12 col-md-9 px-0">
+					<div class="d-flex flex-wrap px-0 border-bottom py-5">
+						<p class="col-12 col-md-3 m-0">2021.10.21<span>n-buna</span></p>
+						<p class="col-12 col-md-9 m-0">NHK『東北ココから「埋もれたい“俺”  ２３歳の景色」』 ナレーションを担当。</p>
+					</div>
+				
+					<div class="d-flex flex-wrap px-0 border-bottom py-5">
+						<p class="col-12 col-md-3 m-0">2021.10.21<span>n-buna</span></p>
+						<p class="col-12 col-md-9 m-0">NHK『東北ココから「埋もれたい“俺”  ２３歳の景色」』 ナレーションを担当。</p>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		
+		<div id="album">
+				
+				<div class="word">「ペンが世界を救うもんか、ラブソングじゃなけりゃ売れるもんか。」</div>
+			
+				<div class="cd-small">
+					<img src="img/CD/カーテンコールがやむ前に.png" title="カーテンコールがやむ前に" class="ch-cd">
+					<img src="img/CD/花と水飴、最終電車.png" title="花と水飴、最終電車">
+					<img src="img/CD/tsuki.png" title="tsuki" >
+					<img src="img/CD/夏草が邪魔をする.png" title="夏草が邪魔をする" >
+					<img src="img/CD/負け犬にアンコールはいらない.png" title="負け犬にアンコールはいらない" >
+					<img src="img/CD/だから僕は音楽を辞めた.png" title="だから僕は音楽を辞めた" >
+					<img src="img/CD/エルマ.png" title="エルマ" >
+					<img src="img/CD/盗作.png" title="盗 作" >
+					<img src="img/CD/创作.png" title="创作" >
+				</div>
+			
+				<div class="cd-big">
+					<img src="img/CD/カーテンコールがやむ前に.jpg" title="カーテンコールがやむ前に">
+					<img src="img/CD/花と水飴、最終電車.jpg" title="花と水飴、最終電車">
+					<img src="img/CD/tsuki.jpg" title="tsuki" >
+					<img src="img/CD/夏草が邪魔をする.jpg" title="夏草が邪魔をする" >
+					<img src="img/CD/負け犬にアンコールはいらない.jpg" title="負け犬にアンコールはいらない" >
+					<img src="img/CD/だから僕は音楽を辞めた.jpg" title="だから僕は音楽を辞めた" >
+					<img src="img/CD/エルマ.jpg" title="エルマ" >
+					<img src="img/CD/盗作.jpg" title="盗 作" >
+					<img src="img/CD/创作.jpg" title="创作" >
+				</div>
+				
+		</div>
+		
+		
+		<div id="interview">
+			<div class="view-title">
+				「<span>見るところ花にあらずと云ふことなし、思ふところ月にあらずと云ふことなし。</span>」
+			</div>
+			<div class="view-body d-flex flex-wrap">
+				<div class="col-12 p-0 view-text">
+					<h5>访谈＆杂物</h5>
+					<p>「君の声、僕の唄。  届くまで、止まるまで。</p>
+					<p class="text-right">嘘吐きな、弱虫な。 僕が作った、愛の言葉。」</p>
+				</div>
+				
+				<div class="buna"><img src="img/n-buna.jpg" title="n-buna"></div>
+					
+				
+				<div class="work col-4">
+					<p>專輯未收录vocaloid作品</p>
+					<p>アリストラスト</p>
+					<p>サヨナラロックバレット</p>
+					<p>......</p>
+					<p>合作曲目</p>
+					<p>三月のパンタシア 花に夕景</p>
+					<p>......</p>
+				</div>
+				<div class="talk col-8 pl-4">
+					<p>「以兩個月亮面對面的主題，時針的指針正對著......</p>
+					<p class="text-right">從六點開始就是晚上了。」</p>
+					
+					<p>「我很喜歡夏天的情景。</p>
+					<p>夏天的青空也好，草原與樹蔭、河流、海洋、悶熱感也好......</p>
+					<p>全部都很喜歡。」</p>	
+				</div>
+				<div class="view-more">
+					<img src="img/more.jpg" title="更多">
+				</div>
+			</div>
+		</div>
+		<div id="footer">
+			
+		</div>
+		
+		<script type="text/javascript">
+			var bt = document.getElementById("nav-bt");
+			var nav = document.getElementById("navpage");
+			var on = 0;
+			
+			bt.onclick = function(){
+				if(on == 0){
+					bt.classList.remove("bt");
+					bt.classList.add("close");
+					nav.style.width = "100%";
+					on = 1;
+				}else{
+					bt.classList.remove("close");
+					bt.classList.add("bt");
+					nav.style.width = "0";
+					on = 0;
+				}
+			}
+			
+			$(function(){
+				$(".nav-item").find("div").hide();
+				
+				$(".nav-item").click(function(){
+					$(this).children().slideDown();
+					$(this).siblings().children("div").slideUp();
+				})
+				
+			})
+			
+			
+			$(".cd-big img").eq(0).show().siblings().hide();
+		
+			$(".cd-small img").each(function(i,ele){
+				$(ele).mouseenter(function(){
+					$(this).addClass("ch-cd").siblings().removeClass("ch-cd");
+					$(".cd-big img").eq(i).fadeIn().siblings('img').fadeOut();
+				})
+			})
+		</script>
+	</body>
+</html>
