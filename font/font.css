@@ -1,0 +1,13 @@
+@font-face {
+    font-family: "ming";     
+    src:url("明朝.otf");    
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "nm";
+    src:url("shi.ttf");   
+    font-weight: normal;
+    font-style: normal;
+}
