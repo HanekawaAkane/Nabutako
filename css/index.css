@@ -1,0 +1,68 @@
+header {
+	box-shadow: 0 3px 5px 0 rgba(0,0,0,0.2);
+	z-index: 1;
+	background-color: white;
+	top: 0;
+	width: 100%;
+}
+h1{-webkit-user-select:none;-ms-user-select: none;-moz-user-select: none;}
+
+.heart{max-width: 1000px ;margin: 0 auto;}
+.top{max-width: 1000px ;margin: 0 auto;}
+.news{max-width: 1000px ;margin: 0 auto;font-size: 14px;}
+
+.top a{font-size: 14px;}
+
+.banner{
+	background-image: url(../img/music.png);
+	background-size:100%;
+	background-position:center;
+	background-position-y: 24%;
+	background-repeat: no-repeat;
+	width:100%;
+	margin-top:56px;
+}
+
+.banner img{
+	width: 100%;
+	opacity: 0;
+}
+
+.news span {
+	background-color: greenyellow;
+	margin: 0 6px;
+}
+
+.gallery{
+	width: 15%;
+	height: 500px;
+}
+
+.box1{
+	width: 70%;
+	background-image: url(../img/b1.jpg);
+	background-position: center center;
+	background-size: cover;
+}
+.box2{
+	opacity: .5;
+	background-image: url(../img/b2.png);
+	background-position: center center;
+	background-size: cover;
+}
+.box3{
+	opacity: .5;
+	background-image: url(../img/b3.jpg);
+	background-position: center center;
+	background-size: cover;
+}
+
+@media only screen and (min-width: 996px) and (max-width: 1200px) {
+	.gallery{height: 510px;}
+}
+@media only screen and (min-width: 760px) and (max-width: 996px) {
+	.gallery{height: 380px;}
+}
+@media only screen and (max-width: 760px) {
+	.gallery{height: 200px;}
+}

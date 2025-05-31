@@ -1,0 +1,97 @@
+nav{padding: 5px 0 !important;}
+
+#moon {
+	width: 1000px;
+	padding: 20px;
+	margin: 20px auto;
+	background-color: pink;
+}
+.diary-banner {
+	width: 1000px;
+	margin: 116px auto 0;
+}
+
+#notebook {
+	height: calc(100vh - 58px);
+	max-width: 1200px;
+	margin: 20px auto 0;
+}
+
+#directory {
+	float: left;
+	width: 200px;
+	height: 100%;
+	box-shadow: 0 4px 4px rgba(0,0,0,.5);
+	overflow-x: hidden;
+	text-align: center;
+}
+
+#directory div {
+	margin: 10px 0;
+}
+
+#directory a {
+	position: relative;
+	color: black;
+	font-size: 14px;
+	cursor: pointer;
+	-webkit-user-select:none;-ms-user-select: none;-moz-user-select: none;
+}
+#directory a:hover{text-decoration: underline;}
+#diary {
+	overflow-x: hidden;
+	height: 100%;
+	width: calc(100% - 200px);
+	float: left;
+	font-family: "nm";
+}
+
+#diary .story {
+	min-width: 800px;
+	text-align: left;
+	border-radius: 10px;
+	box-shadow: 0 0rem 1rem rgba(0, 0, 0, 0.2);
+	padding: 30px 40px 40px;
+	margin: 40px;
+}
+
+.story p {
+	margin: 16px 0 16px 40px;
+	-webkit-user-select:none;-ms-user-select: none;-moz-user-select: none;
+}
+
+::-webkit-scrollbar {width: 6px;}
+::-webkit-scrollbar-track {background-color: whitesmoke;}
+::-webkit-scrollbar-thumb {background-color: lightpink;}
+::-webkit-scrollbar-button {background-color: lightpink;}
+
+.center{text-align: center;}
+.end{margin-left: 9em;}
+
+.line{text-decoration: line-through;}
+
+.here::before{
+	position: absolute;
+	left: 0;
+	display: inline-block;
+	transform: translate(-16px,3px);
+	content: "";
+   	width: 10px;
+    height: 21px;
+    background-image: url(../img/choose.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.here::after{
+	position: absolute;
+	right: 0;
+	display: inline-block;
+	transform: translate(16px,3px)rotate(180deg);
+	content: "";
+    width: 10px;
+    height: 21px;
+    background-image: url(../img/choose.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
