@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>n-buna Profile - ナブタコ事典</title>
+    <script src="js/jquery-3.6.0.min.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" href="font/font.css">
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="css/profile.css">
+</head>
+<body>
+    <header>
+        <div id="top">
+            <div id="top-center">
+                <div><h1><a href="index5.html" style="text-decoration: none; color: inherit;">ナブタコ事典</a></h1></div>
+                <div id="nav-bt" class="bt"></div>
+            </div>
+        </div>
+    </header>
+
+    <div id="navpage">
+        <div id="nav">
+            <div class="nav-item">
+                <a>VOCALOID</a>
+                <div>
+                    <li><a href="#" data-song="カーテンコールが止む前に">カーテンコールが止む前に</a></li>
+                    <li><a href="#" data-song="花と水飴、最終電車">花と水飴、最終電車</a></li>
+                    <li><a href="#" data-song="月を歩いている">月を歩いている</a></li>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a>YORUSHIKA</a>
+                <div>
+                    <li><a href="#" data-song="夏草が邪魔をする">夏草が邪魔をする</a></li>
+                    <li><a href="#" data-song="負け犬にアンコール">負け犬にアンコール</a></li>
+                    <li><a href="#" data-song="だから僕は音楽を辞めた">だから僕は音楽を辞めた</a></li>
+                    <li><a href="diary.html">エルマ</a></li>
+                    <li><a href="#" data-song="盗作">盗作</a></li>
+                    <li><a href="#" data-song="創作">創作</a></li>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a>n-buna info</a>
+                <div>
+                    <li><a href="index5.html#interview">访谈＆杂物</a></li>
+                    <li><a href="profile.html">个人信息</a></li>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="index5.html#developer">developer</a>
+            </div>
+            <div class="nav-item">
+                <a href="https://yorushika.com/" target="_blank">OFFICIAL SITE</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="profile-container">
+        <div class="profile-header">
+            <div class="profile-cover">
+                <img src="img/profile-banner.jpg" alt="Profile Banner">
+            </div>
+            <div class="profile-avatar">
+                <img src="img/n-buna.jpg" alt="n-buna">
+            </div>
+            <h1 class="profile-name">n-buna</h1>
+        </div>
+
+        <div class="profile-content">
+            <div class="profile-section basic-info">
+                <h2>基本情報</h2>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <h3>名前</h3>
+                        <p>n-buna (ナブナ)</p>
+                    </div>
+                    <div class="info-item">
+                        <h3>活動開始</h3>
+                        <p>2012年</p>
+                    </div>
+                    <div class="info-item">
+                        <h3>所属</h3>
+                        <p>YORUSHIKA</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="profile-section biography">
+                <h2>プロフィール</h2>
+                <div class="biography-content">
+                    <!-- 这里将插入传记内容 -->
+                </div>
+            </div>
+
+            <div class="profile-section discography">
+                <h2>ディスコグラフィー</h2>
+                <div class="albums-grid">
+                    <!-- 这里将插入专辑列表 -->
+                </div>
+            </div>
+
+            <div class="profile-section timeline">
+                <h2>活動歴</h2>
+                <div class="timeline-content">
+                    <!-- 这里将插入时间线 -->
+                </div>
+            </div>
+
+            <div class="profile-section quotes">
+                <h2>名言集</h2>
+                <div class="quotes-container">
+                    <!-- 这里将插入名言 -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 导航菜单功能
+        var bt = document.getElementById("nav-bt");
+        var nav = document.getElementById("navpage");
+        var on = 0;
+        
+        bt.onclick = function(){
+            if(on == 0){
+                bt.classList.remove("bt");
+                bt.classList.add("close");
+                nav.style.width = "100%";
+                on = 1;
+            }else{
+                bt.classList.remove("close");
+                bt.classList.add("bt");
+                nav.style.width = "0";
+                on = 0;
+            }
+        }
+        
+        // 导航菜单下拉功能
+        $(function(){
+            $(".nav-item").find("div").hide();
+            
+            $(".nav-item").click(function(){
+                $(this).children("div").slideDown();
+                $(this).siblings().children("div").slideUp();
+            });
+        });
+    </script>
+</body>
+</html> 

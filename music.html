@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>Music Player - ナブタコ事典</title>
+    <script src="js/jquery-3.6.0.min.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" href="font/font.css">
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="css/music-player.css">
+</head>
+<body>
+    <header>
+        <div id="top">
+            <div id="top-center">
+                <div><h1><a href="index5.html" style="text-decoration: none; color: inherit;">ナブタコ事典</a></h1></div>
+                <div id="nav-bt" class="bt"></div>
+            </div>
+        </div>
+    </header>
+
+    <div id="navpage">
+        <div id="nav">
+            <div class="nav-item">
+                <a>VOCALOID</a>
+                <div>
+                    <li><a href="#" data-song="カーテンコールが止む前に">カーテンコールが止む前に</a></li>
+                    <li><a href="#" data-song="花と水飴、最終電車">花と水飴、最終電車</a></li>
+                    <li><a href="#" data-song="月を歩いている">月を歩いている</a></li>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a>YORUSHIKA</a>
+                <div>
+                    <li><a href="#" data-song="夏草が邪魔をする">夏草が邪魔をする</a></li>
+                    <li><a href="#" data-song="負け犬にアンコール">負け犬にアンコール</a></li>
+                    <li><a href="#" data-song="だから僕は音楽を辞めた">だから僕は音楽を辞めた</a></li>
+                    <li><a href="diary.html">エルマ</a></li>
+                    <li><a href="#" data-song="盗作">盗作</a></li>
+                    <li><a href="#" data-song="創作">創作</a></li>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a>n-buna info</a>
+                <div>
+                    <li><a href="index5.html#interview">访谈＆杂物</a></li>
+                    <li><a href="index5.html#profile">个人信息</a></li>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="index5.html#developer">developer</a>
+            </div>
+            <div class="nav-item">
+                <a href="https://yorushika.com/" target="_blank">OFFICIAL SITE</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="music-container">
+        <div class="music-player">
+            <div class="album-cover">
+                <img src="img/default-album.jpg" alt="Album Cover" id="albumCover">
+            </div>
+            <div class="player-controls">
+                <div class="song-info">
+                    <h2 id="songTitle">Song Title</h2>
+                    <p id="artistName">Artist Name</p>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress"></div>
+                    <div class="time">
+                        <span id="currentTime">0:00</span>
+                        <span id="duration">0:00</span>
+                    </div>
+                </div>
+                <div class="controls">
+                    <button id="prevBtn" class="control-btn">Previous</button>
+                    <button id="playBtn" class="control-btn">Play</button>
+                    <button id="nextBtn" class="control-btn">Next</button>
+                    <div class="volume-control">
+                        <input type="range" id="volumeSlider" min="0" max="100" value="100">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="lyrics-container">
+            <div class="lyrics-toggle">
+                <button class="btn btn-primary" id="toggleLyrics">
+                    <span class="jp">歌詞</span>
+                    <span class="en">Lyrics</span>
+                </button>
+            </div>
+            <div class="lyrics-content">
+                <div class="lyrics-jp" id="lyricsJp"></div>
+                <div class="lyrics-en" id="lyricsEn"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="playlist-container">
+        <h3>Playlist</h3>
+        <ul id="playlist"></ul>
+    </div>
+
+    <script src="js/music-player.js"></script>
+    <script>
+        // 导航菜单功能
+        var bt = document.getElementById("nav-bt");
+        var nav = document.getElementById("navpage");
+        var on = 0;
+        
+        bt.onclick = function(){
+            if(on == 0){
+                bt.classList.remove("bt");
+                bt.classList.add("close");
+                nav.style.width = "100%";
+                on = 1;
+            }else{
+                bt.classList.remove("close");
+                bt.classList.add("bt");
+                nav.style.width = "0";
+                on = 0;
+            }
+        }
+        
+        // 导航菜单下拉功能
+        $(function(){
+            $(".nav-item").find("div").hide();
+            
+            $(".nav-item").click(function(){
+                $(this).children("div").slideDown();
+                $(this).siblings().children("div").slideUp();
+            });
+            
+            // 歌曲选择功能
+            $("[data-song]").click(function(e){
+                e.preventDefault();
+                const songName = $(this).data("song");
+                // 查找播放列表中对应的歌曲
+                const songIndex = window.musicPlayer.playlist.findIndex(song => song.title === songName);
+                if(songIndex !== -1) {
+                    window.musicPlayer.loadTrack(songIndex);
+                    window.musicPlayer.play();
+                }
+            });
+        });
+    </script>
+</body>
+</html> 
