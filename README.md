@@ -1,2 +1,2 @@
 # Nabutako
-This project was completed out of love by a group member who has retired from the yorushika community
+This project was made by a group member who has retired from the yorushika community.
