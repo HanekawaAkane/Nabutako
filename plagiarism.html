@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>盗作 - ナブタコ事典</title>
+		<script src="js/jquery-3.6.0.min.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+		<link rel="stylesheet" href="font/font.css">
+		<link rel="icon" type="image/x-icon" href="img/favicon.ico">
+		<style type="text/css">
+			*{padding: 0;margin: 0;list-style: none;}
+			
+			body{
+				background-image: url(img/album-bg.png);
+				background-size: cover;
+				background-attachment: fixed;
+				background-repeat: no-repeat;
+			}
+			
+			h1{-webkit-user-select:none;-ms-user-select: none;-moz-user-select: none;margin: 0;}
+			
+			.top{height: 50px;width: 100%;}
+			#top{
+				width: 100%;
+				background-color: #f9fbf9;
+				box-shadow: 0 3px 4px 0 rgba(0,0,0,0.2);
+				z-index: 3;
+				position: fixed;left: 0;top: 0;
+			}
+			
+			#top-center{
+				max-width: 1000px;
+				height: 50px;
+				margin: 0 auto;
+				display: flex;
+				justify-content: space-between;
+				align-items:center;
+			}
+			
+			#top-center h1{font-size: 20px;font-weight: 400;}
+			
+			.album-content {
+				max-width: 1000px;
+				margin: 80px auto;
+				padding: 20px;
+				background-color: rgba(255, 255, 255, 0.95);
+				border-radius: 8px;
+				box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+			}
+
+			.album-header {
+				display: flex;
+				gap: 30px;
+				margin-bottom: 40px;
+			}
+
+			.album-cover {
+				width: 300px;
+				height: 300px;
+				box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+			}
+
+			.album-cover img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+
+			.album-info {
+				flex: 1;
+			}
+
+			.album-info h2 {
+				font-size: 32px;
+				margin-bottom: 15px;
+				font-family: "ming";
+				color: #2e3579;
+			}
+
+			.album-info .release-info {
+				color: #666;
+				margin-bottom: 20px;
+			}
+
+			.track-list {
+				margin-top: 30px;
+			}
+
+			.track-list h3 {
+				font-size: 24px;
+				margin-bottom: 15px;
+				color: #2e3579;
+				font-family: "ming";
+			}
+
+			.track-item {
+				padding: 15px;
+				border-bottom: 1px solid #eee;
+				display: flex;
+				align-items: center;
+			}
+
+			.track-number {
+				width: 30px;
+				color: #666;
+			}
+
+			.track-title {
+				flex: 1;
+				font-size: 16px;
+				font-family: "ming";
+			}
+
+			.track-duration {
+				color: #666;
+			}
+
+			.album-description {
+				margin-top: 40px;
+				line-height: 1.8;
+				color: #333;
+				font-family: "ming";
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<div id="top">
+				<div id="top-center">
+					<div><h1>ナブタコ事典</h1></div>
+					<a href="index.html" style="text-decoration: none; color: #666;">← 戻る</a>
+				</div>
+			</div>
+		</header>
+
+		<div class="album-content">
+			<div class="album-header">
+				<div class="album-cover">
+					<img src="img/CD/盗作.jpg" alt="盗作 Album Cover">
+				</div>
+				<div class="album-info">
+					<h2>盗作</h2>
+					<div class="release-info">
+						<p>Release Date: 2020.07.29</p>
+						<p>Label: Universal Music</p>
+						<p>Format: CD</p>
+					</div>
+					<div class="album-description">
+						<p>「盗作」は、ヨルシカの4thアルバム。n-bunaが紡ぐ物語と、suis の歌声が織りなす世界観が詰まった作品。</p>
+						<p>アルバムタイトルの「盗作」は、創作における「オリジナリティ」という概念への問いかけを含んでいます。</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="track-list">
+				<h3>収録曲</h3>
+				<div class="track-item">
+					<span class="track-number">1</span>
+					<span class="track-title">春ひさぎ</span>
+					<span class="track-duration">4:31</span>
+				</div>
+				<div class="track-item">
+					<span class="track-number">2</span>
+					<span class="track-title">言って。</span>
+					<span class="track-duration">4:17</span>
+				</div>
+				<div class="track-item">
+					<span class="track-number">3</span>
+					<span class="track-title">雨とカプチーノ</span>
+					<span class="track-duration">4:02</span>
+				</div>
+				<div class="track-item">
+					<span class="track-number">4</span>
+					<span class="track-title">ヒッチコック</span>
+					<span class="track-duration">3:54</span>
+				</div>
+				<div class="track-item">
+					<span class="track-number">5</span>
+					<span class="track-title">心に穴が空いた</span>
+					<span class="track-duration">4:22</span>
+				</div>
+				<div class="track-item">
+					<span class="track-number">6</span>
+					<span class="track-title">爆弾魔</span>
+					<span class="track-duration">3:48</span>
+				</div>
+				<div class="track-item">
+					<span class="track-number">7</span>
+					<span class="track-title">盗作</span>
+					<span class="track-duration">4:39</span>
+				</div>
+				<div class="track-item">
+					<span class="track-number">8</span>
+					<span class="track-title">夜紛い</span>
+					<span class="track-duration">4:11</span>
+				</div>
+			</div>
+
+			<div class="album-description" style="margin-top: 40px;">
+				<h3 style="margin-bottom: 20px;">アルバム解説</h3>
+				<p>「盗作」は、ヨルシカの音楽性をさらに進化させた意欲作です。アルバム全体を通して、創作における「オリジナル」と「模倣」の境界線を探求し、現代社会における創造性の本質に迫ります。</p>
+				<p>リードトラック「春ひさぎ」から最後の「夜紛い」まで、各楽曲が独自の物語を紡ぎながら、アルバム全体としての統一されたテーマを形成しています。n-bunaの繊細な楽曲制作と、suisの表現力豊かなボーカルが見事に調和した作品となっています。</p>
+				<p>特に表題曲「盗作」では、創作における影響関係の複雑さと、真のオリジナリティとは何かという問いを深く掘り下げています。</p>
+			</div>
+		</div>
+	</body>
+</html> 
